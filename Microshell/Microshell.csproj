@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <AssemblyName>Microshell</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microshell</RootNamespace>
+    <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{295BFE92-8AE5-4CDD-9458-33ED19DC65F0}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Alias.cs" />
+    <Compile Include="Debug.cs" />
+    <Compile Include="Expression.Parser\AssignmentNode.cs" />
+    <Compile Include="Expression.Parser\CmdletNode.cs" />
+    <Compile Include="Expression.Parser\CommandNotFoundException.cs" />
+    <Compile Include="Expression.Parser\ConstantTable.cs" />
+    <Compile Include="Expression.Parser\ExpressionVariable.cs" />
+    <Compile Include="Expression.Parser\InvalidToken.cs" />
+    <Compile Include="Expression.Parser\NoOpNode.cs" />
+    <Compile Include="Expression.Parser\Operators.cs" />
+    <Compile Include="Expression.Parser\ParameterNode.cs" />
+    <Compile Include="Expression.Parser\SessionStateUnauthorizedAccessException.cs" />
+    <Compile Include="Expression.Parser\Token.cs" />
+    <Compile Include="Expression.Parser\Variable.cs" />
+    <Compile Include="Expression.Parser\VariableTable.cs" />
+    <Compile Include="System.Management.Automation\Attributes\AliasAttribute.cs" />
+    <Compile Include="System.Management.Automation\Attributes\CmdletAttribute.cs" />
+    <Compile Include="System.Management.Automation\Attributes\ParameterAttribute.cs" />
+    <Compile Include="CmdLets\ForEachObject.cs" />
+    <Compile Include="MSCmdLet.cs" />
+    <Compile Include="CmdLets.cs" />
+    <Compile Include="CmdLets2.cs" />
+    <Compile Include="CmdLets\GetContent.cs" />
+    <Compile Include="CmdLets\StopProcess.cs" />
+    <Compile Include="CmdLets\GetProcessCommand.cs" />
+    <Compile Include="CmdLets\GetChildItemCommand.cs" />
+    <Compile Include="CmdLets\SearchString.cs" />
+    <Compile Include="CmdLets\StartSleep.cs" />
+    <Compile Include="CmdLets\WriteHost.cs" />
+    <Compile Include="CmdLets\WriteOutput.cs" />
+    <Compile Include="CmdParser.cs" />
+    <Compile Include="Expression.Parser\ConstantNode.cs" />
+    <Compile Include="Expression.Parser\ExpressionParser.cs" />
+    <Compile Include="Expression.Parser\ForLoopNode.cs" />
+    <Compile Include="Expression.Parser\Node.cs" />
+    <Compile Include="Expression.Parser\Operator.cs" />
+    <Compile Include="Expression.Parser\OperatorFunctions.cs" />
+    <Compile Include="Expression.Parser\OperatorNode.cs" />
+    <Compile Include="Expression.Parser\ParseException.cs" />
+    <Compile Include="Expression.Parser\VariableNode.cs" />
+    <Compile Include="CmdLets\GetHelp.cs" />
+    <Compile Include="CmdLets\NewAlias.cs" />
+    <Compile Include="SetVariable.cs" />
+    <Compile Include="Shell.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System.ComponentModel\BooleanConverter.cs" />
+    <Compile Include="System.ComponentModel\DateTimeConverter.cs" />
+    <Compile Include="System.ComponentModel\DoubleConverter.cs" />
+    <Compile Include="System.ComponentModel\IntConverter.cs" />
+    <Compile Include="System.ComponentModel\StringConverter.cs" />
+    <Compile Include="System.ComponentModel\TypeConverter.cs" />
+    <Compile Include="System.ComponentModel\TypeDescriptor.cs" />
+    <Compile Include="Tokenizer.cs" />
+    <Compile Include="VerbsCommon.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SPOT.Native">
+      <HintPath>C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Native.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Condition="EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
+  <Import Condition="!EXISTS('$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets')" Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
